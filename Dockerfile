@@ -21,5 +21,7 @@ RUN curl -#sL "https://github.com/grpc/grpc-java/archive/v$GRPC_JAVA_VERSION.tar
   && cp ./build/exe/java_plugin/protoc-gen-grpc-java /usr/local/bin/protoc-gen-grpc-java \
   && rm -rf /usr/local/grpc-java-$GRPC_JAVA_VERSION
 
+RUN ln -s /usr/bin/protoc /usr/local/bin/protoc
+
 ENTRYPOINT ["/usr/bin/mvn"]
 CMD ["--version"]
